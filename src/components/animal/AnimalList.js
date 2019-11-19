@@ -22,7 +22,7 @@ componentDidMount(){
 }
 
 render(){
-    console.log("AnimalList: Render");
+    console.log("Animal List: Render");
   
     return(
       <div className="container-cards">
