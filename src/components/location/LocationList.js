@@ -13,7 +13,7 @@ class LocationList extends Component {
 
 componentDidMount(){
     console.log("LOCATION LIST: ComponentDidMount");
-    //getAll from AnimalManager and hang on to that data; put it in state
+    //getAll from AnimalManager (APIManager if you're nasty) and hang on to that data; put it in state
     APIManager.getAll("locations")
     .then((locationArray) => {
         this.setState({
