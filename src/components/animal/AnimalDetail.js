@@ -7,7 +7,7 @@ class AnimalDetail extends Component {
   state = {
       name: "",
       breed: "",
-  }
+  } 
 
   componentDidMount(){
     console.log("AnimalDetail: ComponentDidMount");
