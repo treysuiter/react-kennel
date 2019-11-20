@@ -6,5 +6,11 @@ export default {
   },
   getAll(mode) {
     return fetch(`${remoteURL}/${mode}`).then(result => result.json())
+  },
+  delete(mode, id) {
+    return fetch(`http://localhost:5002/${mode}/${id}`, {
+        method: "DELETE"
+    })
+    .then(result => result.json())
   }
 }

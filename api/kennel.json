@@ -1,19 +1,29 @@
 {
-    "animals": [
-        { "id": 1, "name": "Doodles", "breed": "Poodle"},
-        { "id": 2, "name": "Decker", "breed": "German Sheperd" },
-        { "id": 3, "name": "Esme", "breed": "Pitbull" }
-    ],
-    "locations": [
-        { "id": 1, "name": "East Nashville", "address": "100 Eastland Ave."},
-        { "id": 2, "name": "West Nashville", "address": "200 Centennial Blvd."}
-    ],
-    "employees": [
-        { "id": 1, "name": "Nuclear Jimmy", "startDate": "2019-01-01"},
-        { "id": 2, "name": "Atomic Ashley", "startDate": "2019-05-05"}
-    ],
-    "owners": [
-        { "id": 1, "name": "Jeffrey McFlippity"},
-        { "id": 2, "name": "Sue McFloppity"}
-    ]
+  "animals": [
+    {
+      "id": 2,
+      "name": "Decker",
+      "breed": "German Sheperd"
+    }
+  ],
+  "locations": [
+    {
+      "id": 1,
+      "name": "East Nashville",
+      "address": "100 Eastland Ave."
+    }
+  ],
+  "employees": [
+    {
+      "id": 1,
+      "name": "Nuclear Jimmy",
+      "startDate": "2019-01-01"
+    }
+  ],
+  "owners": [
+    {
+      "id": 1,
+      "name": "Jeffrey McFlippity"
+    }
+  ]
 }
