@@ -5,7 +5,7 @@ class Home extends Component {
     return (
       <address className="container-cards card">
         Visit Us at the Nashville North Location
-        <br />500 Puppy Way
+        <br />500 Bender Way
       </address>
     )
   }

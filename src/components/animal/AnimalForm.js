@@ -41,16 +41,16 @@ render() {
                             required
                             onChange={this.handleFieldChange}
                             id="animalName"
-                            placeholder="Animal Name"
+                            placeholder="Robot Name"
                         />
                         <label htmlFor="animalName">Name</label>
                         <input type="text"
                             required
                             onChange={this.handleFieldChange}
                             id="breed"
-                            placeholder="Breed"
+                            placeholder="Model"
                         />
-                        <label htmlFor="breed">Breed</label>
+                        <label htmlFor="breed">Model</label>
                     </div>
                     <div className="alignRight">
                         <button

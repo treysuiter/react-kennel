@@ -14,6 +14,16 @@
       "name": "Jeff",
       "breed": "Dummy",
       "id": 5
+    },
+    {
+      "name": "Bender",
+      "breed": "Bender",
+      "id": 6
+    },
+    {
+      "name": "Gerald",
+      "breed": "T",
+      "id": 7
     }
   ],
   "locations": [
