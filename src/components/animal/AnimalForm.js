@@ -8,27 +8,62 @@ class AnimalForm extends Component {
         breed: "",
         loadingStatus: false
     }
-}
+
 
 handleFieldChange = evt => {
     const stateToChange = {}
     stateToChange[evt.target.id] = evt.target.value
-    this.ListeningStateChangedEvent(stateToChange)
+    this.setState(stateToChange)
 }
 
 constructNewAnimal = evt => {
     evt.preventDefault()
     if (this.state.animalName === "" || this.state.breed === "") {
-        windows.alert("Please input animal name AND breed")
+        window.alert("Please input animal name AND breed")
     } else {
-        this.setState({ loadingStatus: true})
+        this.setState({ loadingStatus: true })
         const animal = {
             name: this.state.animalName,
             breed: this.state.breed
         }
         APIManager.post("animals", animal)
-        .then(() => this.PaymentResponse.history.push("/animals"))
+            .then(() => this.props.history.push("/animals"))
     }
 }
 
-render
+render() {
+    return (
+        <>
+            <form>
+                <fieldset>
+                    <div className="formgrid">
+                        <input type="text"
+                            required
+                            onChange={this.handleFieldChange}
+                            id="animalName"
+                            placeholder="Animal Name"
+                        />
+                        <label htmlFor="animalName">Name</label>
+                        <input type="text"
+                            required
+                            onChange={this.handleFieldChange}
+                            id="breed"
+                            placeholder="Breed"
+                        />
+                        <label htmlFor="breed">Breed</label>
+                    </div>
+                    <div className="alignRight">
+                        <button
+                            type="button"
+                            disabled={this.state.loadingStatus}
+                            onClick={this.constructNewAnimal}
+                        >Submit</button>
+                    </div>
+                </fieldset>
+            </form>
+        </>
+    )
+
+    }
+}
+export default AnimalForm

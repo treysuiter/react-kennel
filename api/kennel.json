@@ -9,6 +9,11 @@
       "id": 4,
       "name": "dude",
       "breed": "Idiot"
+    },
+    {
+      "name": "Jeff",
+      "breed": "Dummy",
+      "id": 5
     }
   ],
   "locations": [
