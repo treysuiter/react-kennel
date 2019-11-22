@@ -1,14 +1,12 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import APIManager from '../../modules/APIManager'
-import './AnimalForm.css'
 
-class AnimalForm extends Component {
+class LocationForm extends Component {
     state = {
-        animalName: "",
-        breed: "",
+        locationName: "",
+        address: "",
         loadingStatus: false
     }
-
 
     handleFieldChange = evt => {
         const stateToChange = {}
@@ -16,22 +14,23 @@ class AnimalForm extends Component {
         this.setState(stateToChange)
     }
 
-    constructNewAnimal = evt => {
+    constructNewLocation = evt => {
         evt.preventDefault()
-        if (this.state.animalName === "" || this.state.breed === "") {
-            window.alert("Please input animal name AND breed")
+        if (this.state.locationName === "" || this.state.breed === "") {
+            window.alert("Please input name AND address")
         } else {
             this.setState({ loadingStatus: true })
-            const animal = {
-                name: this.state.animalName,
-                breed: this.state.breed
+            const location = {
+                name: this.state.locationName,
+                address: this.state.address
             }
-            APIManager.post("animals", animal)
-                .then(() => this.props.history.push("/animals"))
+            APIManager.post("locations", location)
+                .then(() => this.props.history.push("/locations"))
         }
     }
 
     render() {
+        console.log("location form render")
         return (
             <>
                 <form>
@@ -40,23 +39,23 @@ class AnimalForm extends Component {
                             <input type="text"
                                 required
                                 onChange={this.handleFieldChange}
-                                id="animalName"
-                                placeholder="Robot Name"
+                                id="locationName"
+                                placeholder="Location Name"
                             />
-                            <label htmlFor="animalName">Name</label>
+                            <label htmlFor="locationName">Name</label>
                             <input type="text"
                                 required
                                 onChange={this.handleFieldChange}
-                                id="breed"
-                                placeholder="Model"
+                                id="address"
+                                placeholder="address"
                             />
-                            <label htmlFor="breed">Model</label>
+                            <label htmlFor="address">Address</label>
                         </div>
                         <div className="alignRight">
                             <button
                                 type="button"
                                 disabled={this.state.loadingStatus}
-                                onClick={this.constructNewAnimal}
+                                onClick={this.constructNewLocation}
                             >Submit</button>
                         </div>
                     </fieldset>
@@ -65,5 +64,7 @@ class AnimalForm extends Component {
         )
 
     }
+
 }
-export default AnimalForm
+
+export default LocationForm

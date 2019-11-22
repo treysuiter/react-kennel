@@ -22,5 +22,3 @@ class AnimalCard extends Component {
 }
 
 export default AnimalCard;
-
-{/* <img src={require(`https://robohash.org/${this.props.animal.id}`)} alt="My Dog" /> */}

@@ -12,6 +12,8 @@ import OwnerList from './owner/OwnerList'
 import AnimalDetail from './animal/AnimalDetail'
 import LocationDetail from './location/LocationDetail'
 import AnimalForm from './animal/AnimalForm'
+import LocationForm from './location/LocationForm'
+import EmployeeForm from './employee/EmployeeForm'
 //only include these once they are built - previous practice exercise
 
 class ApplicationViews extends Component {
@@ -20,12 +22,13 @@ class ApplicationViews extends Component {
     return (
       <React.Fragment>
         <Route exact path="/" render={(props) => {
-          //Route for home
+          //!Route for home
           return <Home />
         }} />
+
         <Route exact path="/animals" render={(props) => {
-          //Route for animals
-          return <AnimalList {...props}/>
+          //!Route for animals
+          return <AnimalList {...props} />
         }} />
         <Route path="/animals/:animalId(\d+)" render={(props) => {
           // Pass the animalId to the AnimalDetailComponent
@@ -37,17 +40,28 @@ class ApplicationViews extends Component {
           //Route for new animal form
           return <AnimalForm {...props} />
         }} />
+
         <Route exact path="/locations" render={(props) => {
-          return <LocationList />
+          //! Route for locations
+          return <LocationList {...props} />
         }} />
         <Route path="/locations/:locationId(\d+)" render={(props) => {
           // Pass the locationId to the AnimalDetailComponent
           return <LocationDetail locationId={parseInt(props.match.params.locationId)}
             {...props} />
         }} />
-        <Route exact path="/employees" render={(props) => {
-          return <EmployeeList />
+        <Route path="/locations/new" render={(props) => {
+          return <LocationForm {...props} />
         }} />
+
+        <Route exact path="/employees" render={(props) => {
+          //! Route for employees
+          return <EmployeeList {...props}/>
+        }} />
+        <Route path="/employees/new" render={(props) => {
+          return <EmployeeForm {...props} />
+        }} />
+
         <Route exact path="/owners" render={(props) => {
           return <OwnerList />
         }} />

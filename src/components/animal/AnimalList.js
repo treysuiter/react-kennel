@@ -42,9 +42,9 @@ class AnimalList extends Component {
         <section className="section-content">
           <button type="button"
             className="btn"
-            onClick={() => {this.props.history.push("/animals/new")}}>
+            onClick={() => { this.props.history.push("/animals/new") }}>
             Admit Robot
-        </button>
+          </button>
         </section>
         <div className="container-cards">
           {this.state.animals.map(animal =>
