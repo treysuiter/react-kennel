@@ -1,11 +1,6 @@
 {
   "animals": [
     {
-      "id": 2,
-      "name": "decker",
-      "breed": "German Sheperd"
-    },
-    {
       "id": 4,
       "name": "dude",
       "breed": "Idiot"
@@ -21,9 +16,9 @@
       "id": 6
     },
     {
+      "id": 7,
       "name": "Gerald",
-      "breed": "T",
-      "id": 7
+      "breed": "M"
     },
     {
       "name": "IG-88",
