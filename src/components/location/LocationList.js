@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-//import the components we will need
-// import EmployeeCard from './EmployeeCard'
-// import EmployeeManager from '../../modules/APIManager'
 import LocationCard from './LocationCard';
 import APIManager from '../../modules/APIManager';
 
@@ -48,9 +45,11 @@ class LocationList extends Component {
         </section>
         <div className="container-cards">
           {this.state.locations.map(location =>
-            <LocationCard key={location.id}
+            <LocationCard 
+            key={location.id}
               location={location}
-              deleteLocation={this.deleteLocation} />
+              deleteLocation={this.deleteLocation}
+              />
           )}
         </div>
       </>

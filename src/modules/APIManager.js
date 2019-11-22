@@ -13,22 +13,22 @@ export default {
     })
       .then(result => result.json())
   },
-  post(mode, newAnimal) {
+  post(mode, newData) {
     return fetch(`${remoteURL}/${mode}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(newAnimal)
+      body: JSON.stringify(newData)
     }).then(response => response.json())
   },
-  update(mode, editedAnimal) {
-    return fetch(`${remoteURL}/${mode}/${editedAnimal.id}`, {
+  update(mode, newData) {
+    return fetch(`${remoteURL}/${mode}/${newData.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json"
       },
-      body: JSON.stringify(editedAnimal)
+      body: JSON.stringify(newData)
     }).then(data => data.json());
   }
 }
