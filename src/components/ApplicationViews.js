@@ -14,6 +14,7 @@ import OwnerForm from "./owner/OwnerForm"
 import Login from "./Auth/Login"
 import AnimalEditForm from "./animal/animalEditForm"
 import LocationEditForm from './location/LocationEditForm'
+import EmployeeEditForm from './employee/employeeEditForm'
 //only include these once they are built - previous practice exercise
 
 class ApplicationViews extends Component {
@@ -89,7 +90,11 @@ class ApplicationViews extends Component {
         <Route path="/employees/new" render={(props) => {
           return <EmployeeForm {...props} />
         }} />
-
+         <Route
+          path="/employees/:employeeId(\d+)/edit" render={props => {
+            return <EmployeeEditForm {...props} />
+          }}
+        />
         <Route exact path="/owners" render={(props) => {
           //! Routes for owners
           if (this.isAuthenticated()) {
