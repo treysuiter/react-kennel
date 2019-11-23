@@ -44,11 +44,12 @@ class LocationList extends Component {
           </button>
         </section>
         <div className="container-cards">
-          {this.state.locations.map(location =>
+          {this.state.locations.map(actualLocation =>
             <LocationCard 
-            key={location.id}
-              location={location}
+            key={actualLocation.id}
+              actualLocation={actualLocation}
               deleteLocation={this.deleteLocation}
+              {...this.props}
               />
           )}
         </div>

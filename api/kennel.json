@@ -36,6 +36,11 @@
       "name": "West NAshville",
       "address": "700 Centennial BLvd",
       "id": 2
+    },
+    {
+      "name": "South Nashville",
+      "address": "900 Mboro Rd",
+      "id": 3
     }
   ],
   "employees": [
