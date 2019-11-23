@@ -1,11 +1,11 @@
 import React, { Component } from "react"
-import APIManager from "../../modules/APIManager";
+import APIManager from "../../modules/APIManager"
 
-class LocationEditForm extends Component {
+class EmployeeEditForm extends Component {
     //set the initial state
     state = {
-      locationName: "",
-      address: "",
+      employeeName: "",
+      startDate: "",
       loadingStatus: true,
     };
 
@@ -15,25 +15,25 @@ class LocationEditForm extends Component {
       this.setState(stateToChange)
     }
 
-    updateExistingLocation = evt => {
+    updateExistingEmployee = evt => {
       evt.preventDefault()
       this.setState({ loadingStatus: true });
-      const editedLocation = {
-        id: this.props.match.params.locationId,
-        name: this.state.locationName,
-        address: this.state.address
+      const editedEmployee = {
+        id: this.props.match.params.employeeId,
+        name: this.state.employeeName,
+        startDate: this.state.startDate
       };
 
-      APIManager.update("locations", editedLocation)
-      .then(() => this.props.history.push("/locations"))
+      APIManager.update("employees", editedEmployee)
+      .then(() => this.props.history.push("/employees"))
     }
 
     componentDidMount() {
-      APIManager.get("locations", this.props.match.params.locationId)
-      .then(location => {
+      APIManager.get("employees", this.props.match.params.employeeId)
+      .then(employee => {
           this.setState({
-            locationName: location.name,
-            address: location.address,
+            employeeName: employee.name,
+            startDate: employee.startDate,
             loadingStatus: false,
           });
       });
@@ -50,25 +50,25 @@ class LocationEditForm extends Component {
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="locationName"
-                value={this.state.locationName}
+                id="employeeName"
+                value={this.state.employeeName}
               />
-              <label htmlFor="animalName">Location Name</label>
+              <label htmlFor="animalName">Employee Name</label>
 
               <input
                 type="text"
                 required
                 className="form-control"
                 onChange={this.handleFieldChange}
-                id="address"
-                value={this.state.address}
+                id="startDate"
+                value={this.state.startDate}
               />
-              <label htmlFor="breed">Address</label>
+              <label htmlFor="breed">Start Date</label>
             </div>
             <div className="alignRight">
               <button
                 type="button" disabled={this.state.loadingStatus}
-                onClick={this.updateExistingLocation}
+                onClick={this.updateExistingEmployee}
                 className="btn btn-primary"
               >Submit</button>
             </div>
@@ -79,4 +79,4 @@ class LocationEditForm extends Component {
     }
 }
 
-export default LocationEditForm
+export default EmployeeEditForm

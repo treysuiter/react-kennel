@@ -38,9 +38,9 @@
       "id": 2
     },
     {
+      "id": 3,
       "name": "South Nashville",
-      "address": "900 Mboro Rd",
-      "id": 3
+      "address": "900 Mboro rd"
     }
   ],
   "employees": [
@@ -50,15 +50,15 @@
       "startDate": "2019-01-01"
     },
     {
-      "name": "Jennifer Explosion",
-      "startDate": "2019-11-01",
-      "id": 2
+      "id": 2,
+      "name": "Jennifer Whoa",
+      "startDate": "2019-11-01"
     }
   ],
   "owners": [
     {
       "id": 1,
-      "name": "Jeffrey McFlippity"
+      "name": "Jeffrey McFlurplity"
     },
     {
       "name": "Bill Robot Owner",

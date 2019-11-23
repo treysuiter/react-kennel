@@ -10,7 +10,6 @@ class EmployeeList extends Component {
     }
 
 componentDidMount(){
-    console.log("EMPLOYEE LIST: ComponentDidMount");
     //getAll from AnimalManager and hang on to that data; put it in state
     APIManager.getAll("employees")
     .then((employeeArray) => {
@@ -34,7 +33,6 @@ deleteEmployee = id => {
 
 
 render(){
-    console.log("Employee List: Render");
   
     return(
       <>
@@ -49,7 +47,9 @@ render(){
         {this.state.employees.map(employee =>
           <EmployeeCard key={employee.id} 
           employee={employee}
-          deleteEmployee={this.deleteEmployee} />
+          deleteEmployee={this.deleteEmployee} 
+          {...this.props}/>
+          
         )}
       </div>
       </>
