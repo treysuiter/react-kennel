@@ -29,11 +29,11 @@ class LocationEditForm extends Component {
     }
 
     componentDidMount() {
-      APIManager.get(this.props.match.params.locationId)
+      APIManager.get("locations", this.props.match.params.locationId)
       .then(location => {
           this.setState({
-            animalName: location.name,
-            breed: location.address,
+            locationName: location.name,
+            address: location.address,
             loadingStatus: false,
           });
       });

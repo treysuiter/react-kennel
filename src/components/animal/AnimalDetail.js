@@ -12,7 +12,6 @@ class AnimalDetail extends Component {
   } 
 
   componentDidMount(){
-    console.log("AnimalDetail: ComponentDidMount");
     //get(id) from AnimalManager and hang on to the data; put it into state
     APIManager.get("animals", this.props.animalId)
     .then((animal) => {
