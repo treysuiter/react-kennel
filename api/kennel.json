@@ -1,14 +1,29 @@
 {
   "animals": [
     {
-      "id": 2,
-      "name": "decker",
-      "breed": "German Sheperd"
-    },
-    {
       "id": 4,
       "name": "dude",
       "breed": "Idiot"
+    },
+    {
+      "name": "Jeff",
+      "breed": "Dummy",
+      "id": 5
+    },
+    {
+      "name": "Bender",
+      "breed": "Bender",
+      "id": 6
+    },
+    {
+      "id": 7,
+      "name": "Gerald",
+      "breed": "M"
+    },
+    {
+      "name": "IG-88",
+      "breed": "Bounty Hunter",
+      "id": 8
     }
   ],
   "locations": [
@@ -16,6 +31,16 @@
       "id": 1,
       "name": "East Nashville",
       "address": "100 Eastland Ave."
+    },
+    {
+      "name": "West NAshville",
+      "address": "700 Centennial BLvd",
+      "id": 2
+    },
+    {
+      "name": "South Nashville",
+      "address": "900 Mboro Rd",
+      "id": 3
     }
   ],
   "employees": [
@@ -23,12 +48,21 @@
       "id": 1,
       "name": "Nuclear Jimmy",
       "startDate": "2019-01-01"
+    },
+    {
+      "name": "Jennifer Explosion",
+      "startDate": "2019-11-01",
+      "id": 2
     }
   ],
   "owners": [
     {
       "id": 1,
       "name": "Jeffrey McFlippity"
+    },
+    {
+      "name": "Bill Robot Owner",
+      "id": 2
     }
   ]
 }

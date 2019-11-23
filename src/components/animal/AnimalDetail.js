@@ -36,10 +36,10 @@ class AnimalDetail extends Component {
       <div className="card">
         <div className="card-content">
           <picture>
-            <img src={require('./dog.svg')} alt="My Dog" />
+            <img src={`https://robohash.org/${this.state.name}`} alt="My Dog" />
           </picture>
             <h3>Name: <span style={{ color: 'darkslategrey' }}>{firstLetterCase(this.state.name)}</span></h3>
-            <p>Breed: {this.state.breed}</p>
+            <p>Model: {this.state.breed}</p>
             <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Discharge</button>
         </div>
       </div>

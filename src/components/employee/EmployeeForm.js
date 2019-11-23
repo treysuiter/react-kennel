@@ -1,11 +1,10 @@
 import React, { Component } from 'react'
 import APIManager from '../../modules/APIManager'
-import './AnimalForm.css'
 
-class AnimalForm extends Component {
+class EmployeeForm extends Component {
     state = {
-        animalName: "",
-        breed: "",
+        employeeName: "",
+        startDate: "",
         loadingStatus: false
     }
 
@@ -16,18 +15,18 @@ class AnimalForm extends Component {
         this.setState(stateToChange)
     }
 
-    constructNewAnimal = evt => {
+    constructNewEmployee = evt => {
         evt.preventDefault()
-        if (this.state.animalName === "" || this.state.breed === "") {
-            window.alert("Please input animal name AND breed")
+        if (this.state.employeeName === "" || this.state.startDate === "") {
+            window.alert("Please input employee name AND start date")
         } else {
             this.setState({ loadingStatus: true })
-            const animal = {
-                name: this.state.animalName,
-                breed: this.state.breed
+            const employee = {
+                name: this.state.employeeName,
+                startDate: this.state.startDate
             }
-            APIManager.post("animals", animal)
-                .then(() => this.props.history.push("/animals"))
+            APIManager.post("employees", employee)
+                .then(() => this.props.history.push("/employees"))
         }
     }
 
@@ -40,23 +39,23 @@ class AnimalForm extends Component {
                             <input type="text"
                                 required
                                 onChange={this.handleFieldChange}
-                                id="animalName"
-                                placeholder="Robot Name"
+                                id="employeeName"
+                                placeholder="Employee Name"
                             />
-                            <label htmlFor="animalName">Name</label>
+                            <label htmlFor="employeeName">Name</label>
                             <input type="text"
                                 required
                                 onChange={this.handleFieldChange}
-                                id="breed"
-                                placeholder="Model"
+                                id="startDate"
+                                placeholder="Start Date"
                             />
-                            <label htmlFor="breed">Model</label>
+                            <label htmlFor="startDate">Start Date</label>
                         </div>
                         <div className="alignRight">
                             <button
                                 type="button"
                                 disabled={this.state.loadingStatus}
-                                onClick={this.constructNewAnimal}
+                                onClick={this.constructNewEmployee}
                             >Submit</button>
                         </div>
                     </fieldset>
@@ -66,4 +65,4 @@ class AnimalForm extends Component {
 
     }
 }
-export default AnimalForm
+export default EmployeeForm
