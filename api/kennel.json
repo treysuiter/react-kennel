@@ -1,68 +1,42 @@
 {
   "animals": [
     {
-      "id": 4,
-      "name": "dude",
-      "breed": "Idiot"
-    },
-    {
-      "name": "Jeff",
-      "breed": "Dummy",
-      "id": 5
-    },
-    {
-      "name": "Bender",
-      "breed": "Bender",
-      "id": 6
-    },
-    {
-      "id": 7,
-      "name": "Gerald",
-      "breed": "M"
-    },
-    {
-      "name": "IG-88",
-      "breed": "Bounty Hunter",
-      "id": 8
-    }
-  ],
-  "locations": [
-    {
-      "id": 1,
-      "name": "East Nashville",
-      "address": "100 Eastland Ave."
-    },
-    {
-      "name": "West NAshville",
-      "address": "700 Centennial BLvd",
-      "id": 2
+      "id": 2,
+      "name": "Doodles",
+      "breed": "German Sheperd",
+      "employeeId": 3
     },
     {
       "id": 3,
-      "name": "South Nashville",
-      "address": "900 Mboro rd"
+      "name": "Esme",
+      "breed": "Pitbull",
+      "employeeId": 1
+    },
+    {
+      "name": "Jack",
+      "breed": "Big cat",
+      "id": 4,
+      "employeeId": 1
+    },
+    {
+      "name": "Angus",
+      "breed": "Gerbil",
+      "id": 5,
+      "employeeId": 2
     }
   ],
   "employees": [
     {
-      "id": 1,
-      "name": "Nuclear Jimmy",
-      "startDate": "2019-01-01"
+        "id": 1,
+        "name": "Jessica Younker"
     },
     {
-      "id": 2,
-      "name": "Jennifer Whoa",
-      "startDate": "2019-11-01"
-    }
-  ],
-  "owners": [
-    {
-      "id": 1,
-      "name": "Jeffrey McFlurplity"
+        "id": 2,
+        "name": "Jordan Nelson"
     },
     {
-      "name": "Bill Robot Owner",
-      "id": 2
+        "id": 3,
+        "name": "Zoe LeBlanc"
     }
   ]
 }
