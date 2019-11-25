@@ -9,6 +9,7 @@ class AnimalList extends Component {
   //define what this component needs to render
   state = {
     animals: [],
+    location: ""
   }
 
   componentDidMount() {
