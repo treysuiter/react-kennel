@@ -11,7 +11,6 @@ class LocationDetail extends Component {
   }
 
   componentDidMount() {
-    console.log("LocationDetail: ComponentDidMount");
     //get(id) from AnimalManager and hang on to the data; put it into state
     APIManager.get("locations", this.props.locationId)
       .then((location) => {
@@ -39,12 +38,12 @@ class LocationDetail extends Component {
           <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
           <p>Address: {this.state.address}</p>
           <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Close</button>
-          Employees: {this.state.employees.map(employee =>
+          <div className="employeesByLocation">Employees: {this.state.employees.map(employee =>
             <p key={employee.id}>
               {employee.name}
             </p>
           )}
-
+          </div>
         </div>
       </div>
     );

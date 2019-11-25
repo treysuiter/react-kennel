@@ -23,13 +23,16 @@ class ApplicationViews extends Component {
 
   // Check if credentials are in local storage
   //returns true/false
-  isAuthenticated = () => localStorage.getItem("credentials") !== null
+  // isAuthenticated = () => localStorage.getItem("credentials") !== null
 
   render() {
     return (
       <React.Fragment>
 
-        <Route path="/login" component={Login} />
+        <Route path="/login" render={props => {
+          //! Login
+          return <Login setUser={this.props.setUser} {...props} />
+        }} />
 
         <Route exact path="/" render={(props) => {
           //!Route for home
@@ -38,7 +41,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/animals" render={props => {
           //! Routes for robots (animals)
-          if (this.isAuthenticated()) {
+          if (this.props.user) {
             return <AnimalList {...props} />
           } else {
             return <Redirect to="/login" />
@@ -61,7 +64,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/locations" render={(props) => {
           //! Routes for locations
-          if (this.isAuthenticated()) {
+          if (this.props.user) {
             return <LocationList {...props} />
           } else {
             return <Redirect to="/login" />
@@ -83,7 +86,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/employees" render={(props) => {
           //! Routes for employees
-          if (this.isAuthenticated()) {
+          if (this.props.user) {
             return <EmployeeList {...props} />
           } else {
             return <Redirect to="/login" />
@@ -104,7 +107,7 @@ class ApplicationViews extends Component {
 
         <Route exact path="/owners" render={(props) => {
           //! Routes for owners
-          if (this.isAuthenticated()) {
+          if (this.props.user) {
             return <OwnerList {...props} />
           } else {
             return <Redirect to="/login" />

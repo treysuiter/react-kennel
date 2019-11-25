@@ -4,15 +4,41 @@ import NavBar from './nav/NavBar'
 import ApplicationViews from './ApplicationViews'
 
 class Kennel extends Component {
+
+    state = {
+        user: false
+      }
+
+    isAuthenticated = () => localStorage.getItem("credentials") !== null
+
+    setUser = (authObj) => {
+        /*
+          For now, just store the email and password that
+          the customer enters into local storage.
+        */
+        sessionStorage.setItem(
+            "credentials",
+            JSON.stringify(authObj)
+        )
+        this.setState({
+            user: this.isAuthenticated()
+        });
+    }
+
+    componentDidMount() {
+        this.setState({
+            user: this.isAuthenticated()
+        })
+    }
+
     render() {
         return (
-
             <>
-                <NavBar />
-                <ApplicationViews />
+                <NavBar user={this.state.user} />
+                <ApplicationViews user={this.state.user}
+                    setUser={this.setUser} />
             </>
-
-        );
+        )
     }
 }
 
