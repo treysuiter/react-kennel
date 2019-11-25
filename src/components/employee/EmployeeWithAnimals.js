@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import EmployeeManager from '../../modules/EmployeeManager'
 import AnimalCard from '../animal/AnimalCard'
 import APIManager from '../../modules/APIManager'
 
@@ -20,6 +19,18 @@ class EmployeeWithAnimals extends Component {
         })
     }
 
+    deleteAnimal = id => {
+      APIManager.delete("animals", id)
+        .then(() => {
+          APIManager.getAll("animals")
+            .then((newAnimals) => {
+              this.setState({
+                animals: newAnimals
+              })
+            })
+        })
+    }
+
     render(){
         return (
           <div className="card">
@@ -28,6 +39,7 @@ class EmployeeWithAnimals extends Component {
               <AnimalCard
                 key={animal.id}
                 animal={animal}
+                deleteAnimal={this.deleteAnimal}
                 {...this.props}
               />
             )}

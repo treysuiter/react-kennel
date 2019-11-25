@@ -1,24 +1,6 @@
 {
   "animals": [
     {
-      "id": 2,
-      "name": "Doodles",
-      "breed": "German Sheperd",
-      "employeeId": 3
-    },
-    {
-      "id": 3,
-      "name": "Esme",
-      "breed": "Pitbull",
-      "employeeId": 1
-    },
-    {
-      "name": "Jack",
-      "breed": "Big cat",
-      "id": 4,
-      "employeeId": 1
-    },
-    {
       "name": "Angus",
       "breed": "Gerbil",
       "id": 5,
@@ -27,16 +9,21 @@
   ],
   "employees": [
     {
-        "id": 1,
-        "name": "Jessica Younker"
+      "id": 1,
+      "name": "Jessica Younker",
+      "startDate": "2019-01-01"
     },
     {
-        "id": 2,
-        "name": "Jordan Nelson"
+      "id": 2,
+      "name": "Jordan Nelson",
+      "startDate": "2019-02-02"
     },
     {
-        "id": 3,
-        "name": "Zoe LeBlanc"
+      "id": 3,
+      "name": "Zoe LeBlanc",
+      "startDate": "2019-03-03"
     }
-  ]
+  ],
+  "locations": [],
+  "owners": []
 }
