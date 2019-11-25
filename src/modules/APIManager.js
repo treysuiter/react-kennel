@@ -34,5 +34,9 @@ export default {
   getWithAnimals(mode, id) {
     return fetch(`${remoteURL}/${mode}/${id}?_embed=animals`)
       .then(result => result.json())
+  },
+  getEmployeesPerLocation(mode, id) {
+    return fetch(`${remoteURL}/${mode}/${id}?_embed=employees`)
+    .then(response => response.json())
   }
 }

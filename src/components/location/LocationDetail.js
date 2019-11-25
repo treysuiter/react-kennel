@@ -6,6 +6,7 @@ class LocationDetail extends Component {
   state = {
     name: "",
     address: "",
+    employees: [],
     loadingStatus: true
   }
 
@@ -19,7 +20,10 @@ class LocationDetail extends Component {
           address: location.address,
           loadingStatus: false
         });
-      });
+      })
+    APIManager.getEmployeesPerLocation("locations", this.props.locationId)
+      // .then(employees => console.log(employees.employees))
+      .then(employee => this.setState({ employees: employee.employees }))
   }
 
   handleDelete = () => {
@@ -35,6 +39,12 @@ class LocationDetail extends Component {
           <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
           <p>Address: {this.state.address}</p>
           <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Close</button>
+          Employees: {this.state.employees.map(employee =>
+            <p key={employee.id}>
+              {employee.name}
+            </p>
+          )}
+
         </div>
       </div>
     );

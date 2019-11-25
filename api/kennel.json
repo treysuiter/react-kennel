@@ -11,19 +11,33 @@
     {
       "id": 1,
       "name": "Jessica Younker",
-      "startDate": "2019-01-01"
+      "startDate": "2019-01-01",
+      "locationId": 1
     },
     {
       "id": 2,
       "name": "Jordan Nelson",
-      "startDate": "2019-02-02"
+      "startDate": "2019-02-02",
+      "locationId": 2
     },
     {
       "id": 3,
       "name": "Zoe LeBlanc",
-      "startDate": "2019-03-03"
+      "startDate": "2019-03-03",
+      "locationId": 1
     }
   ],
-  "locations": [],
+  "locations": [
+    {
+      "name": "North Nashvillie",
+      "address": "500 Robot Blvd",
+      "id": 1
+    },
+    {
+      "name": "South Nashville",
+      "address": "600 Robot Way",
+      "id": 2
+    }
+  ],
   "owners": []
 }
