@@ -9,6 +9,10 @@ class NavBar extends Component {
     this.props.history.push("/")
   }
 
+  handleSearch = () => {
+    this.props.history.push("/search")
+  }
+
   render() {
 
     return (
@@ -25,7 +29,7 @@ class NavBar extends Component {
                 <li><Link className="nav-link" to="/animals">Animals</Link></li>
                 <li><Link className="nav-link" to="/employees">Employees</Link></li>
                 <li><Link className="nav-link" to="/owners">Owners</Link></li>
-                <li><input type="text" className="nav-link" to="/search" placeholder="Search"/></li>
+                <li><input type="text" className="nav-search" placeholder="Search" onChange={this.handleSearch}/></li>
                 <li><Link className="nav-link" onClick={this.handleLogout}>Logout</Link ></li>
               </> : null}
               {(!this.props.user) ? <li><Link className="nav-link" to="/login">Login</Link></li> : null}
