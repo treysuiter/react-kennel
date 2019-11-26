@@ -17,6 +17,7 @@ import LocationEditForm from './location/LocationEditForm'
 import EmployeeEditForm from './employee/employeeEditForm'
 import OwnerEditForm from './owner/OwnerEditForm'
 import EmployeeWithAnimals from './employee/EmployeeWithAnimals'
+import SearchResults from './search/SearchResults'
 //only include these once they are built - previous practice exercise
 
 class ApplicationViews extends Component {
@@ -65,7 +66,7 @@ class ApplicationViews extends Component {
         <Route exact path="/locations" render={(props) => {
           //! Routes for locations
           // if (this.props.user) {
-            return <LocationList {...props} />
+          return <LocationList {...props} />
           // } else {
           //   return <Redirect to="/login" />
           // }
@@ -116,10 +117,13 @@ class ApplicationViews extends Component {
         <Route path="/owners/new" render={(props) => {
           return <OwnerForm {...props} />
         }} />
-        <Route
-          path="/owners/:ownerId(\d+)/edit" render={props => {
-            return <OwnerEditForm {...props} />
-          }}
+        <Route path="/owners/:ownerId(\d+)/edit" render={props => {
+          return <OwnerEditForm {...props} />
+        }}
+        />
+        <Route path="/search" render={props => {
+          return <SearchResults />
+        }}
         />
       </React.Fragment>
     )
