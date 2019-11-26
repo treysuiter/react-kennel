@@ -16,13 +16,18 @@ class Kennel extends Component {
           For now, just store the email and password that
           the customer enters into local storage.
         */
-        sessionStorage.setItem(
+        localStorage.setItem(
             "credentials",
             JSON.stringify(authObj)
         )
         this.setState({
             user: this.isAuthenticated()
         });
+    }
+
+    clearUser = () => {
+        localStorage.clear()
+        this.setState({user: this.isAuthenticated()})
     }
 
     componentDidMount() {
@@ -34,7 +39,7 @@ class Kennel extends Component {
     render() {
         return (
             <>
-                <NavBar user={this.state.user} />
+                <NavBar user={this.state.user} clearUser={this.clearUser}/>
                 <ApplicationViews user={this.state.user}
                     setUser={this.setUser} />
             </>

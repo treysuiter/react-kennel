@@ -9,12 +9,6 @@
   ],
   "employees": [
     {
-      "id": 1,
-      "name": "Jessica Younker",
-      "startDate": "2019-01-01",
-      "locationId": 1
-    },
-    {
       "id": 2,
       "name": "Jordan Nelson",
       "startDate": "2019-02-02",
@@ -24,7 +18,7 @@
       "id": 3,
       "name": "Zoe LeBlanc",
       "startDate": "2019-03-03",
-      "locationId": 1
+      "locationId": 2
     }
   ],
   "locations": [

@@ -37,7 +37,7 @@ class LocationDetail extends Component {
         <div className="card-content">
           <h3>Name: <span style={{ color: 'darkslategrey' }}>{this.state.name}</span></h3>
           <p>Address: {this.state.address}</p>
-          <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Close</button>
+          {this.props.user && <button type="button" disabled={this.state.loadingStatus} onClick={this.handleDelete}>Close</button>}
           <div className="employeesByLocation">Employees: {this.state.employees.map(employee =>
             <p key={employee.id}>
               {employee.name}
