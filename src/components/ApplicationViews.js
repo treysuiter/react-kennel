@@ -18,45 +18,48 @@ import EmployeeEditForm from './employee/employeeEditForm'
 import OwnerEditForm from './owner/OwnerEditForm'
 import EmployeeWithAnimals from './employee/EmployeeWithAnimals'
 import SearchResults from './search/SearchResults'
-//only include these once they are built - previous practice exercise
 
 class ApplicationViews extends Component {
 
-  // Check if credentials are in local storage
-  //returns true/false
-  // isAuthenticated = () => localStorage.getItem("credentials") !== null
+  //Renders ApplicationsViews based on URL
 
   render() {
-    return (
-      <React.Fragment>
 
+    return (
+      <>
+        {/* //!Login */}
+        {/* Route path for login; calls Login components; passes setUser and ...props */}
         <Route path="/login" render={props => {
-          //! Login
           return <Login setUser={this.props.setUser} {...props} />
         }} />
 
-        <Route exact path="/" render={(props) => {
-          //!Route for home
+        {/* //!Home */}
+        {/* Route path for home; calls Home component  */}
+        <Route exact path="/" render={(props) => {       
           return <Home />
         }} />
 
+
+        {/* //!Animals */}
+        {/* Route path for animals (robots); checks for this.props.user and returns AnimalList component with ...props passed*/}
         <Route exact path="/animals" render={props => {
-          //! Routes for robots (animals)
           if (this.props.user) {
             return <AnimalList {...props} />
           } else {
             return <Redirect to="/login" />
           }
         }} />
+        {/* Route path for animal detail; returns AnimalDetail component with animalId and ...props passed */}
         <Route exact path="/animals/:animalId(\d+)" render={(props) => {
           return <AnimalDetail
             animalId={parseInt(props.match.params.animalId)}
             {...props} />
         }} />
+        {/* Route path for new animal form; returns AnimalForm component with ...props passed */}
         <Route path="/animals/new" render={(props) => {
-          //Route for new animal form
           return <AnimalForm {...props} />
         }} />
+        {/* Route path for animal edit form; returns AnimalEditForm with ...props passed */}
         <Route
           path="/animals/:animalId(\d+)/edit" render={props => {
             return <AnimalEditForm {...props} />
@@ -65,11 +68,9 @@ class ApplicationViews extends Component {
 
         <Route exact path="/locations" render={(props) => {
           //! Routes for locations
-          // if (this.props.user) {
+    
           return <LocationList {...props} />
-          // } else {
-          //   return <Redirect to="/login" />
-          // }
+         
         }} />
         <Route exact path="/locations/:locationId(\d+)" render={(props) => {
           // Pass the locationId to the AnimalDetailComponent
@@ -125,7 +126,7 @@ class ApplicationViews extends Component {
           return <SearchResults />
         }}
         />
-      </React.Fragment>
+      </>
     )
   }
 }
