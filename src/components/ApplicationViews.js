@@ -17,111 +17,126 @@ import LocationEditForm from './location/LocationEditForm'
 import EmployeeEditForm from './employee/employeeEditForm'
 import OwnerEditForm from './owner/OwnerEditForm'
 import EmployeeWithAnimals from './employee/EmployeeWithAnimals'
-//only include these once they are built - previous practice exercise
+import SearchResults from './search/SearchResults'
 
 class ApplicationViews extends Component {
 
-  // Check if credentials are in local storage
-  //returns true/false
-  // isAuthenticated = () => localStorage.getItem("credentials") !== null
+  //Renders ApplicationsViews based on URL
 
   render() {
-    return (
-      <React.Fragment>
 
+    return (
+      <>
+        {/* //! Login */}
+        {/* Route path for login; calls Login components; passes setUser and ...props */}
         <Route path="/login" render={props => {
-          //! Login
           return <Login setUser={this.props.setUser} {...props} />
         }} />
 
-        <Route exact path="/" render={(props) => {
-          //!Route for home
+        {/* //! Home */}
+        {/* Route path for home; calls Home component  */}
+        <Route exact path="/" render={(props) => {       
           return <Home />
         }} />
 
+
+        {/* //! Animals */}
+        {/* Route path for animals (robots); checks for this.props.user and returns AnimalList component with ...props passed*/}
         <Route exact path="/animals" render={props => {
-          //! Routes for robots (animals)
           if (this.props.user) {
             return <AnimalList {...props} />
           } else {
             return <Redirect to="/login" />
           }
         }} />
+        {/* Route path for animal detail; returns AnimalDetail component with animalId and ...props passed */}
         <Route exact path="/animals/:animalId(\d+)" render={(props) => {
           return <AnimalDetail
             animalId={parseInt(props.match.params.animalId)}
             {...props} />
         }} />
+        {/* Route path for new animal form; returns AnimalForm component with ...props passed */}
         <Route path="/animals/new" render={(props) => {
-          //Route for new animal form
           return <AnimalForm {...props} />
         }} />
+        {/* Route path for animal edit form; returns AnimalEditForm with ...props passed */}
         <Route
           path="/animals/:animalId(\d+)/edit" render={props => {
             return <AnimalEditForm {...props} />
           }}
         />
 
+        {/* //! Locations */}
+        {/* Route path for locations list; return LocationList component with ...props passed */}
         <Route exact path="/locations" render={(props) => {
-          //! Routes for locations
-          // if (this.props.user) {
-            return <LocationList {...props} />
-          // } else {
-          //   return <Redirect to="/login" />
-          // }
+          return <LocationList {...props} />
         }} />
+        {/* Route path for location detail; returns LocationDetail component with locationId and ...props passed */}
         <Route exact path="/locations/:locationId(\d+)" render={(props) => {
-          // Pass the locationId to the AnimalDetailComponent
           return <LocationDetail locationId={parseInt(props.match.params.locationId)}
             {...props} />
         }} />
+        {/* Route path for new location form; return LocationForm with ...props passed */}
         <Route path="/locations/new" render={(props) => {
           return <LocationForm {...props} />
         }} />
+        {/* Route for location edit form; returns LocationEditForm with ...props passed */}
         <Route
           path="/locations/:locationId(\d+)/edit" render={props => {
             return <LocationEditForm {...props} />
           }}
         />
 
+        {/* //! Employees */}
+        {/* Route path for employees list; return EmployeeList component with ...props passed if user is logged in */}
         <Route exact path="/employees" render={(props) => {
-          //! Routes for employees
           if (this.props.user) {
             return <EmployeeList {...props} />
           } else {
             return <Redirect to="/login" />
           }
         }} />
+        {/* Route path for new employee form; return EmployeeForm component with ...props passed */}
         <Route path="/employees/new" render={(props) => {
           return <EmployeeForm {...props} />
         }} />
+        {/* Route path for edit employee form; returns EmployeeEditForm component with ...props passed */}
         <Route
           path="/employees/:employeeId(\d+)/edit" render={props => {
             return <EmployeeEditForm {...props} />
           }}
         />
+        {/* Route path for employee details; returns EmployeeWithAnimals component with ...props passed */}
         <Route path="/employees/:employeeId(\d+)/details" render={(props) => {
           return <EmployeeWithAnimals {...props} />
         }} />
 
-
+        {/* //! Owners */}
+        {/* Route path for owners list; returns OwnerList with ...props passed if user is logged in */}
         <Route exact path="/owners" render={(props) => {
-          //! Routes for owners
           if (this.props.user) {
             return <OwnerList {...props} />
           } else {
             return <Redirect to="/login" />
           }
         }} />
+        {/* Route path for new owner form; returns OwnerForm with ...props passed */}
         <Route path="/owners/new" render={(props) => {
           return <OwnerForm {...props} />
         }} />
-        <Route
-          path="/owners/:ownerId(\d+)/edit" render={props => {
-            return <OwnerEditForm {...props} />
-          }}
+        {/* Route path for owner edit form; returns OwnerEditForm with ...props passed */}
+        <Route path="/owners/:ownerId(\d+)/edit" render={props => {
+          return <OwnerEditForm {...props} />
+        }}
         />
-      </React.Fragment>
+
+        {/* //! Search */}
+        {/* Route path for search results; returns SearchResults component */}
+        <Route path="/search" render={props => {
+          return <SearchResults />
+        }}
+        />
+      </>
     )
   }
 }

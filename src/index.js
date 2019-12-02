@@ -5,6 +5,8 @@ import * as serviceWorker from './serviceWorker';
 import Kennel from './components/Kennel';
 import { BrowserRouter as Router } from "react-router-dom"
 
+//Wraps Kennel.js in router component
+
 ReactDOM.render(
     <Router>
         <Kennel />
