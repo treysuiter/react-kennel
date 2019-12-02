@@ -3,19 +3,21 @@ import './Kennel.css'
 import NavBar from './nav/NavBar'
 import ApplicationViews from './ApplicationViews'
 
-class Kennel extends Component {
 
+
+class Kennel extends Component {
     state = {
         user: false
       }
 
+    // Method to check for logged in user in local storage
+
     isAuthenticated = () => localStorage.getItem("credentials") !== null
 
+    // Adds entered (or unentered) user info to local storage and calls isAuthenticated
+
     setUser = (authObj) => {
-        /*
-          For now, just store the email and password that
-          the customer enters into local storage.
-        */
+       
         localStorage.setItem(
             "credentials",
             JSON.stringify(authObj)
@@ -25,10 +27,14 @@ class Kennel extends Component {
         });
     }
 
+    //Handles logout functionality
+
     clearUser = () => {
         localStorage.clear()
         this.setState({user: this.isAuthenticated()})
     }
+
+    //Checks for logged in user on rerender
 
     componentDidMount() {
         this.setState({
@@ -36,10 +42,14 @@ class Kennel extends Component {
         })
     }
 
+    //Renders NavBar and ApplicationViews components
+
     render() {
         return (
             <>
+                {/* Calls NavBar component while pass user and clearUser as props */} 
                 <NavBar user={this.state.user} clearUser={this.clearUser}/>
+                {/* Calls ApplicationViews component while passing user and setUser as props */}
                 <ApplicationViews user={this.state.user}
                     setUser={this.setUser} />
             </>
